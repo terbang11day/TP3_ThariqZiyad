@@ -11,39 +11,23 @@ public class Lemari {
         this.rak[index] = rak;
     }
 
-    // Kemungkinan dikerjakan mhs
+    // TODO : Implementasi method print
     public void print(){
-        for (int i = 0; i < this.ukuran; i++) {
-            System.out.println(this.rak[i].getKategoriRak());
-            System.out.println("==================");
-            this.rak[i].printRak();
-            System.out.println("==================");
-            System.out.println();
-        }
-    }
-
-    // Kemungkinan dikerjakan mhs
-    public boolean beliObat(Obat obat, int jumlah) {
-        if (obat.getStok() >= jumlah) {
-            obat.setStok(obat.getStok() - jumlah);
-            return true;
-        } else {
-            return false;
-        }  
-    }
-
-    // Kemungkinan dikerjakan mhs
-    public Obat searchObat(String namaObat) {
-        for (Rak r : this.rak) {
-            for (Obat obat : r.getListObat()){
-                if (obat == null) continue;
-                if (obat.getNama().equals(namaObat)) return obat;
-            }
-        }
         return null;
     }
 
+    // TODO : Implementasi method beliObat
+    public boolean beliObat(Obat obat, int jumlah) {
+        return; 
+    }
+
+    // TODO : Implementasi method searchObat
+    public Obat searchObat(String namaObat) {
+        return;
+    }
+
+    // TODO : Implementasi method getRak
     public Rak getRak(int i) {
-        return this.rak[i];
+        return;
     }
 }
