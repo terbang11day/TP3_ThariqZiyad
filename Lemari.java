@@ -13,21 +13,21 @@ public class Lemari {
 
     // TODO : Implementasi method print
     public void print(){
-        return null;
+        return;
     }
 
     // TODO : Implementasi method beliObat
     public boolean beliObat(Obat obat, int jumlah) {
-        return; 
+        return false; 
     }
 
     // TODO : Implementasi method searchObat
     public Obat searchObat(String namaObat) {
-        return;
+        return null;
     }
 
     // TODO : Implementasi method getRak
     public Rak getRak(int i) {
-        return;
+        return null;
     }
 }

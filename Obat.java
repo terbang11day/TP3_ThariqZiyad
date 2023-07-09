@@ -4,43 +4,44 @@ public class Obat {
     private int harga;
     private int stok;
 
-    public Obat(String nama, int stok){
+    public Obat(String nama, int stok, String kategori){
         this.nama = nama;
         this.stok = stok;
-    }
-
-    public void print(){
-        System.out.println("Nama obat: " + this.nama);
-        System.out.println("Harga obat: " + this.harga);
-        System.out.println("Stok obat: " + this.stok);
-    }
-
-    public String getKategori(){
-        return this.kategori;
-    }
-
-    public String getNama(){
-        return this.nama;
-    }
-
-    public int getHarga(){
-        return this.harga;
-    }
-
-    public int getStok(){
-        return this.stok;
-    }
-    
-    public void setKategori(String kategori){
         this.kategori = kategori;
     }
 
-    public void setStok(int stok){
-        this.stok = stok;
+    // TODO : Implementasi method getter getKategori
+    public String getKategori(){
+        return "";
     }
 
+    // TODO : Implementasi method getter getNama
+    public String getNama(){
+        return "";
+    }
+
+    // TODO : Implementasi method getter getHarga
+    public int getHarga(){
+        return 0;
+    }
+
+    // TODO : Implementasi method getter getStok
+    public int getStok(){
+        return 0;
+    }
+
+    // TODO : Implementasi method setter setKategori
+    public void setKategori(String kategori){
+    }
+
+    // TODO : Implementasi method setter setNama
+    public void setStok(int stok){
+        return;
+    }
+
+    // TODO : Implementasi method setter setHarga
     public void setHarga(int harga){
-        this.harga = harga;
+        return;
     }
 
 }

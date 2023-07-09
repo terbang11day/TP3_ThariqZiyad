@@ -9,29 +9,24 @@ public class Rak {
         this.size = size;
     }
 
+    // TODO : Implementasi method getKategoriRak
     public String getKategoriRak() {
-        return this.kategori;
+        return "";
     }
 
-    public String getDaftarObatClass() {
-        return this.daftarObat.getClass().getSimpleName();
-    }
-
+    // TODO : Implementasi method tambahObat
     public void tambahObat(Obat obat, int index) {
         this.daftarObat[index] = obat;
     }
     
-    // Kemungkinan dikerjakan mhs
+    // TODO : Implementasi method printRak
     public void printRak(){
-        for (int i = 0; i < this.size; i++) {
-            String result = daftarObat[i] == null ?  "| " + "kosong " : "| " + daftarObat[i].getNama() + " (stock: " + daftarObat[i].getStok() + ")"; 
-            System.out.print(result);
-        }
-        System.out.println();
+        return;
     }
 
+    // TODO : Implementasi method getListObat
     public Obat[] getListObat() {
-        return this.daftarObat;
+        return null;
     }
     
 }
