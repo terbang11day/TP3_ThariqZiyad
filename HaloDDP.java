@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class HaloDDP {
     public static void main(String[] args) {
         int BASE_PRICE = 5000; 
         Scanner input = new Scanner(System.in);
