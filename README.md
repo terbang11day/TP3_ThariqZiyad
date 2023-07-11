@@ -6,7 +6,7 @@ Semester Pendek – 2022/2023
 Dokumen soal dapat diakses melalui [link ini](https://docs.google.com/document/d/1OD_QE2gXS5XrUaqRq00KPYf2-Ure2KTbAzpJLi0zUcY).
 
 
-## Panduan Memulai (Jika Menggunakan Repository Lama)
+## Panduan Memulai
 1. Tambahkan ***remote*** baru bernama **`upstream`** untuk mendapatkan code dari repository DDP2 dengan perintah:
     ```bash
     git remote add upstream https://gitlab.com/DDP2-CSUI/sp-ddp2-2023/tp3-sp-ddp2.git
