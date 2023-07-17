@@ -114,8 +114,13 @@ public class HaloDDP {
                 System.out.print("Ingin beli berapa banyak? ");
                 int sum = input4.nextInt();
                 boolean success = lemari.beliObat(obat, sum);
+                
                 if (success) {
-                    int totalHarga = obat.getHarga() * sum;
+                    Rak rak = new Rak(0,namaObat);
+                    int row = rak.searchrowsobar(colms, rows, namaObat);
+                    int colm = rak.searchcolomObat(colms, rows, namaObat);
+                    
+                    int totalHarga = obat.getHarga(row,colm) * sum;
                     String transaction = obat.getNama() + " - " + sum + " - " + totalHarga;
                     transactionHistory.add(transaction);
                     System.out.println("Berhasil membeli obat");
