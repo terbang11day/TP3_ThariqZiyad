@@ -1,32 +1,69 @@
 public class Rak {
-    private int size;
-    private String kategori;
+    private int ukuran;
     private Obat[] daftarObat;
+    private String kategoriRak;
 
-    public Rak(int size, String kategori){
-        this.kategori = kategori;
-        this.daftarObat = new Obat[size];
-        this.size = size;
+    public Rak(int ukuran, String kategoriRak) {
+        this.ukuran = ukuran;
+        this.kategoriRak = kategoriRak;
+        daftarObat = new Obat[ukuran];
     }
 
-    // TODO : Implementasi method getKategoriRak
     public String getKategoriRak() {
-        return "";
+        return kategoriRak;
     }
 
-    // TODO : Implementasi method tambahObat
     public void tambahObat(Obat obat, int index) {
-        this.daftarObat[index] = obat;
-    }
-    
-    // TODO : Implementasi method printRak
-    public void printRak(){
-        return;
+        if (index >= 0 && index < ukuran) {
+            daftarObat[index] = obat;
+            System.out.println("Obat berhasil ditambahkan");
+        } else {
+            System.out.println("Indeks rak tidak valid");
+        }
     }
 
-    // TODO : Implementasi method getListObat
-    public Obat[] getListObat() {
+    public void printRak() {
+        for (int i = 0; i < ukuran; i++) {
+            if (daftarObat[i] == null) {
+                System.out.print("| kosong ");
+            } else {
+                System.out.print("| " + daftarObat[i].getNama() + " (stok: " + daftarObat[i].getStok() + ")");
+            }
+        }
+        System.out.println();
+    }
+
+    public boolean containsObat(Obat obat) {
+        for (int i = 0; i < ukuran; i++) {
+            if (daftarObat[i] != null && daftarObat[i].getNama().equals(obat.getNama())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean beliObat(Obat obat, int jumlah) {
+        for (int i = 0; i < ukuran; i++) {
+            if (daftarObat[i] != null && daftarObat[i].getNama().equals(obat.getNama())) {
+                if (daftarObat[i].getStok() >= jumlah) {
+                    daftarObat[i].setStok(daftarObat[i].getStok() - jumlah);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public Obat searchObat(String namaObat) {
+        for (int i = 0; i < ukuran; i++) {
+            if (daftarObat[i] != null && daftarObat[i].getNama().equals(namaObat)) {
+                return daftarObat[i];
+            }
+        }
         return null;
     }
-    
+
+    public Obat[] getListObat() {
+        return daftarObat;
+    }
 }
