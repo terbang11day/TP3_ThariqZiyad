@@ -83,23 +83,4 @@ public class Lemari {
         return rak[i];
     }
     
-    /**
-     * Mencari posisi Obat dalam Lemari.
-     * @param obat Obat yang akan dicari posisinya
-     * @return array 2D berisi posisi Obat yang ditemukan
-     */
-    public int[][] cariPosisiObat(Obat obat) {
-        List<int[]> posisiObat = new ArrayList<>();
-        for (int i = 0; i < ukuran; i++) {
-            Rak rak = getRak(i);
-            Obat[] daftarObat = rak.getListObat();
-            for (int j = 0; j < rak.getukuran(); j++) {
-                if (daftarObat[j] != null && daftarObat[j].equals(obat)) {
-                    int[] posisi = {i, j};
-                    posisiObat.add(posisi);
-                }
-            }
-        }
-        return posisiObat.toArray(new int[0][]);
-    }
 }

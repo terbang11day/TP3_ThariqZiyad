@@ -2,9 +2,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Program HaloDDP adalah program untuk mengelola lemari obat.
+ * Program ini memungkinkan pengguna untuk menambah, melihat, dan membeli obat dalam lemari.
+ */
 public class HaloDDP {
+    /**
+     * Method utama untuk menjalankan program.
+     *
+     * @param args Argumen baris perintah.
+     */
     public static void main(String[] args) {
-        int BASE_PRICE = 5000; 
+
         Scanner input = new Scanner(System.in);
         List<String> transactionHistory = new ArrayList<>();
 
@@ -13,9 +22,9 @@ public class HaloDDP {
         char a = masukan.charAt(0);
         char b = masukan.charAt(2);
         int rows = Character.getNumericValue(a);
-        int colms= Character.getNumericValue(b);
-        String [][] mylist = new String[rows][colms];
-        String [] mylist2 = new String[rows+1];
+        int colms = Character.getNumericValue(b);
+        String[][] mylist = new String[rows][colms];
+        String[] mylist2 = new String[rows + 1];
         if (rows < 1 || colms < 1 || rows > 5) {
             System.out.println("Ukuran lemari tidak valid!");
             System.exit(0);
@@ -28,17 +37,16 @@ public class HaloDDP {
         System.out.println("Silahkan tentukan kategori obat untuk setiap rak");
         // TODO : Implementasi input kategori rak\
         for (int i = 1; i <= rows; i++) {
-            System.out.print("Rak ke-"+i+": ");
+            System.out.print("Rak ke-" + i + ": ");
             String kategori = input.next();
-            if (kategori.equals(mylist2[i-1])){
+            if (kategori.equals(mylist2[i - 1])) {
                 System.out.println("Kategori rak tidak valid");
                 i--;
+            } else {
+                mylist2[i] = kategori;
+                System.out.println("Rak ke-" + i + " adalah rak obat " + kategori);
+                lemari.addRak(new Rak(colms, kategori), i - 1);
             }
-            else {
-                mylist2[i] = kategori; 
-                System.out.println("Rak ke-"+i+" adalah rak obat "+ kategori);
-                lemari.addRak(new Rak(colms, kategori), i-1); 
-            }       
         }
         lemari.print();
 
@@ -64,7 +72,7 @@ public class HaloDDP {
                 for (int i = 1; i <= rows; i++) {
                     if (mylist2[i].equals(kategoriobat)) {
                         System.out.println("Kategori obat valid");
-                        rakIndex = i-1;
+                        rakIndex = i - 1;
                         break;
                     }
                 }
@@ -82,21 +90,21 @@ public class HaloDDP {
                     continue;
                 }
                 int index = 0;
-                for (int i = 1; i<=mylist2.length; i++){
-                    if(mylist2[i].equals(kategoriobat)){
+                for (int i = 1; i <= mylist2.length; i++) {
+                    if (mylist2[i].equals(kategoriobat)) {
                         index = i;
                         break;
                     }
                 }
                 System.out.println(index);
-                if (depan != index ){
+                if (depan != index) {
                     System.out.println("Rak bukan untuk kategori obat " + kategoriobat);
                     break;
                 }
                 System.out.print("Masukkan stock obat: ");
                 int stock = input2.nextInt();
                 Obat obat = new Obat(namaobat, stock, kategoriobat);
-                lemari.getRak(rakIndex).tambahObat(obat, belakang-1);
+                lemari.getRak(rakIndex).tambahObat(obat, belakang - 1);
 
             } else if (menu.equals("2")) {
                 // TODO : Implementasi print obat
@@ -114,20 +122,20 @@ public class HaloDDP {
                 System.out.print("Ingin beli berapa banyak? ");
                 int sum = input4.nextInt();
                 boolean success = lemari.beliObat(obat, sum);
-                
+
                 if (success) {
-                    Rak rak = new Rak(0,namaObat);
+                    Rak rak = new Rak(0, namaObat);
                     int row = rak.searchrowsobar(colms, rows, namaObat);
                     int colm = rak.searchcolomObat(colms, rows, namaObat);
-                    
-                    int totalHarga = obat.getHarga(row,colm) * sum;
+
+                    int totalHarga = obat.getHarga(row, colm) * sum;
                     String transaction = obat.getNama() + " - " + sum + " - " + totalHarga;
                     transactionHistory.add(transaction);
                     System.out.println("Berhasil membeli obat");
                 } else {
                     System.out.println("stock obat tidak mencukupi");
                 }
-            } else if (menu.equals("99")){
+            } else if (menu.equals("99")) {
                 // TODO : Implementasi keluar
                 System.out.println("Riwayat transaksi hari ini\n");
                 System.out.println("No. Nama - sum - Total Harga");
